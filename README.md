@@ -29,9 +29,13 @@ All content lives in `src/data/`:
 
 Past dates drop out of the listings automatically.
 
-## Photos
+## Brand and photos
 
-Every photo slot has an illustrated fallback. To use real photos, drop JPGs with these names into `public/img/` and they fade in over the illustrations, with no code changes:
+- **Logo:** `src/lib/logo.js` holds the Mezzanine wordmark, traced to SVG from the logo on mezzanineldn.co.uk. It's drawn in `currentColor`. The favicon is the stairs-and-M part of the same mark.
+- **Hero:** the venue's Vimeo video plays muted in the background. `public/img/hero-poster.jpg` is a still from that video and shows until the player starts.
+- **Stairs photo:** `public/img/stairs.jpg` is the same still, used in Find us.
+
+The other photo slots show illustrations until real photos are added. Drop JPGs with these names into `public/img/` and they fade in over the illustrations, with no code changes:
 
 | File | Where it shows |
 | --- | --- |

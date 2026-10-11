@@ -1,5 +1,6 @@
 import { html } from '../lib/dom.js';
-import { icon, monogram } from '../lib/icons.js';
+import { icon } from '../lib/icons.js';
+import { logo } from '../lib/logo.js';
 import { venue, hours, fullAddress } from '../data/venue.js';
 
 export const navItems = [
@@ -10,9 +11,7 @@ export const navItems = [
   { href: '#find', label: 'Find us' },
 ];
 
-export const brand = (cls = '') => html`<a class="brand ${cls}" href="#top" aria-label="Mezzanine, back to the top">
-  ${monogram()}<span class="brand-word">Mezzanine</span>
-</a>`;
+export const brand = (cls = '') => html`<a class="brand ${cls}" href="#top" aria-label="Mezzanine, back to the top">${logo('', '')}</a>`;
 
 export function header() {
   return html`

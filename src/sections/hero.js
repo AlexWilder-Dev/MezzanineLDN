@@ -1,18 +1,26 @@
 import { html } from '../lib/dom.js';
 import { icon } from '../lib/icons.js';
+import { logo } from '../lib/logo.js';
+import { photoUrl } from '../data/images.js';
 import { venue, hours } from '../data/venue.js';
 
 export function hero() {
+  const poster = photoUrl(venue.heroVideo.poster);
   return html`
-  <section class="hero" id="top" data-level="G" data-level-name="Market level">
+  <section class="hero" id="top" data-level="G" data-level-name="Market level" style="--video-ratio:${venue.heroVideo.ratio.toFixed(4)}">
     <div class="hero-media" aria-hidden="true">
-      <div class="hero-poster" style="background-image:url('${venue.heroVideo.poster}')"></div>
-      <div class="hero-video" data-hero-video></div>
+      <div class="hero-poster" style="background-image:url('${poster}')"></div>
       <div class="hero-tint"></div>
       <div class="hero-grille"></div>
     </div>
 
     <div class="hero-tubes" aria-hidden="true"><span></span><span></span></div>
+
+    <div class="hero-frame" aria-hidden="true">
+      <div class="hero-frame-poster" style="background-image:url('${poster}')"></div>
+      <div class="hero-video" data-hero-video></div>
+      <div class="hero-frame-shade"></div>
+    </div>
 
     <div class="hero-inner wrap">
       <p class="hero-sign" aria-hidden="true">
@@ -21,7 +29,7 @@ export function hero() {
       </p>
       <div class="hero-copy">
         <p class="eyebrow eyebrow-market">Tooting Market · London SW17</p>
-        <h1 class="hero-title"><span class="hero-title-word">Mezzanine</span><span class="sr-only">: cocktail bar and DJ venue upstairs in Tooting Market</span></h1>
+        <h1 class="hero-title">${logo('hero-logo', '')}<span class="sr-only">Mezzanine: cocktail bar and DJ venue upstairs in Tooting Market</span></h1>
         <p class="hero-lede">Homemade cocktails, aperitivo boards and independent DJs, hidden up the stairs in the middle of the market.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#nights">What’s on ${icon('arrowRight')}</a>
@@ -47,7 +55,7 @@ export function hero() {
 
   <div class="shutter" aria-hidden="true" data-shutter>
     <div class="shutter-slats"></div>
-    <p class="shutter-tag">Mezzanine <span>Unit 4 · up the stairs</span></p>
+    <div class="shutter-tag">${logo('shutter-logo', '')}<span>Unit 4 · up the stairs</span></div>
   </div>`;
 }
 

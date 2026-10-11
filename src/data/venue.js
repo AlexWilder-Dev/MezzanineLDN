@@ -28,7 +28,9 @@ export const venue = {
   tickets: 'https://ra.co/clubs/234688',
   heroVideo: {
     src: 'https://player.vimeo.com/video/1113875902?autoplay=1&loop=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=0&dnt=1',
-    poster: 'https://i.vimeocdn.com/video/2052483004-d0f63e1635ba3f2df9cc49f3f2c9edc8f8220ba37a102616b28a31fb755277fc-d_2400',
+    // A still from the same video, saved in /public/img. The video is portrait.
+    poster: 'hero-poster.jpg',
+    ratio: 1080 / 1917,
   },
 };
 

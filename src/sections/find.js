@@ -1,5 +1,7 @@
 import { html, raw } from '../lib/dom.js';
-import { icon, monogram } from '../lib/icons.js';
+import { icon } from '../lib/icons.js';
+import { logo } from '../lib/logo.js';
+import { photo } from '../lib/photo.js';
 import { venue, hours, fullAddress, mapsLinks } from '../data/venue.js';
 import { brand } from './header.js';
 
@@ -55,11 +57,12 @@ export function find() {
         <dl class="find-facts" data-reveal>
           <div><dt>${icon('train')} Tube</dt><dd>${venue.tube.station} (${venue.tube.line}), ${venue.tube.walk.toLowerCase()}</dd></div>
           <div><dt>${icon('clock')} Hours</dt><dd>${hours.summary}</dd></div>
-          <div><dt>${icon('stairs')} Getting in</dt><dd>Inside Tooting Market. Find Unit 4 and head upstairs.</dd></div>
+          <div><dt>${icon('stairs')} Getting in</dt><dd>Inside Tooting Market. Find Unit 4, then follow the lit arrow up the stairs.</dd></div>
         </dl>
       </div>
 
       <div class="find-side">
+        ${photo('stairs', 'find-photo', 'Follow the arrow')}
         <figure class="route-card" data-reveal>${routeMap()}</figure>
         <ul class="socials" data-reveal>
           ${venue.socials.map((s) => html`<li><a href="${s.url}" target="_blank" rel="noopener">${icon(s.id)}<span class="socials-label">${s.label}</span><span class="socials-handle">${s.handle}</span></a></li>`)}
@@ -74,7 +77,7 @@ export function footer() {
   return html`
   <footer class="site-footer">
     <div class="wrap">
-      <p class="footer-word" aria-hidden="true">${monogram()}<span>Mezzanine</span></p>
+      <p class="footer-word">${logo('', '')}</p>
       <div class="footer-grid">
         <div>
           <h2 class="footer-h">Visit</h2>

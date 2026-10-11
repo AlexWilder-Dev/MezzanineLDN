@@ -37,9 +37,3 @@ export function icon(name, cls = '') {
     `<svg class="icon ${cls}" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${P[name] || ''}</svg>`,
   );
 }
-
-// Monogram: an M built from two flights of stairs meeting on a landing.
-export const monogram = (cls = '') =>
-  raw(
-    `<svg class="monogram ${cls}" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M4 28V4h5v5h4.5v5h5V9H23V4h5v24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" stroke-linecap="square"/></svg>`,
-  );

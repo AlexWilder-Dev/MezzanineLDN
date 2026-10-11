@@ -22,12 +22,13 @@
   --market: #0e1413;
   --fluoro: #dff5ea;
   --signal: #f0cf3a;
+  --logo-red: #f01c12;
   --error: #ffb3a3;
 
   --line: rgba(243, 230, 210, 0.13);
   --line-brass: rgba(201, 162, 95, 0.32);
 
-  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-display: 'Bodoni Moda Variable', 'Didot', 'Bodoni 72', Georgia, serif;
   --font-sign: 'Big Shoulders Display Variable', 'Arial Narrow', 'Helvetica Neue', sans-serif;
   --font-body: 'DM Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
@@ -190,17 +191,17 @@ section[id] {
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-weight: 380;
+  font-weight: 400;
   font-size: clamp(2.5rem, 9vw, 5.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.022em;
+  line-height: 1;
+  letter-spacing: -0.012em;
   margin: 0.35em 0 0.35em;
   text-wrap: balance;
 }
 
 .display em {
   font-style: italic;
-  font-weight: 330;
+  font-weight: 400;
   color: var(--brass-2);
 }
 
@@ -424,18 +425,20 @@ section[id] {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.45em;
-  font-family: var(--font-display);
-  font-size: 1.32rem;
-  font-weight: 460;
-  letter-spacing: -0.01em;
+  min-height: 44px;
+  color: var(--cream);
   text-decoration: none;
 }
 
-.monogram {
-  width: 1.15em;
-  height: 1.15em;
-  color: var(--brass-2);
+.logo {
+  display: block;
+  height: auto;
+  overflow: visible;
+}
+
+.brand .logo {
+  width: auto;
+  height: 30px;
 }
 
 .level {
@@ -705,6 +708,30 @@ html[data-room='stairs'] .level-floor {
   transform: scale(1.04);
 }
 
+/* The venue video is portrait. On phones it fills the screen; on wider
+   screens it sits in an arched window beside the copy. */
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-frame-poster {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+}
+
+.hero-frame-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 18, 16, 0.62) 0%, rgba(14, 22, 20, 0.08) 20%, rgba(20, 6, 6, 0.3) 34%, rgba(20, 6, 6, 0.8) 50%, rgba(20, 6, 6, 0.92) 70%, var(--ink) 100%),
+    linear-gradient(160deg, rgba(60, 120, 108, 0.28), transparent 45%);
+}
+
 .hero-video {
   position: absolute;
   inset: 0;
@@ -721,8 +748,8 @@ html[data-room='stairs'] .level-floor {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: max(100cqw, 177.78cqh);
-  height: max(56.25cqw, 100cqh);
+  width: max(100cqw, calc(100cqh * var(--video-ratio, 0.5634)));
+  height: max(calc(100cqw / var(--video-ratio, 0.5634)), 100cqh);
   max-width: none;
   border: 0;
   transform: translate(-50%, -50%);
@@ -834,19 +861,13 @@ html[data-room='stairs'] .level-floor {
 }
 
 .hero-title {
-  margin: 0.02em 0 0.14em;
-  font-family: var(--font-display);
-  font-weight: 360;
-  font-size: clamp(4rem, 20vw, 13.5rem);
-  font-variation-settings: 'opsz' 144;
-  line-height: 0.84;
-  letter-spacing: -0.04em;
+  margin: 14px 0 18px;
   color: var(--cream);
-  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.45);
 }
 
-.hero-title-word {
-  display: block;
+.hero-logo {
+  width: min(100%, 720px);
+  filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.55));
 }
 
 .hero-lede {
@@ -1007,15 +1028,14 @@ html[data-room='stairs'] .level-floor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin: 0;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 360;
-  font-size: clamp(3rem, 14vw, 7rem);
-  line-height: 1;
+  gap: 22px;
+  width: min(80vw, 560px);
   color: var(--cream);
-  text-shadow: 0 0 40px rgba(255, 170, 90, 0.35);
+}
+
+.shutter-logo {
+  width: 100%;
+  filter: drop-shadow(0 0 24px rgba(255, 170, 90, 0.35));
 }
 
 .shutter-tag span {
@@ -1023,12 +1043,10 @@ html[data-room='stairs'] .level-floor {
   background: var(--signal);
   color: var(--ink);
   font-family: var(--font-sign);
-  font-style: normal;
   font-weight: 800;
   font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  text-shadow: none;
   transform: rotate(-2deg);
 }
 
@@ -2740,6 +2758,19 @@ html[data-room='stairs'] .level-floor {
   margin: 0;
 }
 
+.find-side {
+  display: grid;
+  gap: 14px;
+}
+
+.find-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.find-photo img {
+  object-position: 50% 32%;
+}
+
 .route-card {
   margin: 0;
   padding: 14px;
@@ -2855,7 +2886,7 @@ html[data-room='stairs'] .level-floor {
 .socials {
   display: grid;
   gap: 8px;
-  margin: 14px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -2902,29 +2933,13 @@ html[data-room='stairs'] .level-floor {
 }
 
 .footer-word {
-  display: flex;
-  align-items: center;
-  gap: 0.12em;
-  margin: 0 0 0.3em;
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144;
-  font-weight: 340;
-  font-size: clamp(3.4rem, 16.5vw, 15rem);
-  line-height: 0.85;
-  letter-spacing: -0.045em;
+  margin: 0 0 clamp(40px, 6vw, 72px);
+  color: var(--logo-red);
 }
 
-.footer-word span {
-  background: linear-gradient(180deg, #b52a22 0%, var(--maroon) 55%, #4d0505 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.footer-word .monogram {
-  width: 0.7em;
-  height: 0.7em;
-  color: var(--brass);
+.footer-word .logo {
+  width: min(100%, 980px);
+  filter: drop-shadow(0 0 18px rgba(240, 28, 18, 0.35));
 }
 
 .footer-grid {
@@ -2969,8 +2984,8 @@ html[data-room='stairs'] .level-floor {
   border-top: 1px solid var(--line);
 }
 
-.brand-small {
-  font-size: 1.1rem;
+.brand-small .logo {
+  height: 24px;
 }
 
 .footer-down {
@@ -3045,17 +3060,57 @@ html[data-room='stairs'] .level-floor {
     padding-bottom: 120px;
   }
 
-  .hero-sign {
-    position: absolute;
-    right: 0;
-    top: -12px;
-    font-size: 1.1rem;
-    transform: rotate(3deg);
-    transform-origin: right;
+  .brand .logo {
+    height: 34px;
+  }
+
+  .hero {
+    --frame-right: max(var(--gutter), calc((100% - var(--wrap)) / 2));
+    min-height: max(100svh, 720px);
+  }
+
+  .hero-poster {
+    filter: blur(48px) saturate(1.2) brightness(0.55);
+    transform: scale(1.25);
+  }
+
+  .hero-tint {
+    background:
+      linear-gradient(90deg, rgba(10, 16, 15, 0.94) 0%, rgba(10, 16, 15, 0.78) 42%, rgba(20, 6, 6, 0.3) 100%),
+      linear-gradient(180deg, transparent 70%, var(--ink) 100%);
+  }
+
+  .hero-frame {
+    inset: calc(var(--header-h) + 28px) var(--frame-right) 64px auto;
+    z-index: 0;
+    aspect-ratio: var(--video-ratio, 0.5634);
+    border-radius: 999px 999px 18px 18px / 240px 240px 18px 18px;
+    box-shadow: 0 0 0 1px rgba(228, 197, 140, 0.45), 0 40px 120px -30px rgba(255, 60, 30, 0.45);
+  }
+
+  .hero-frame-shade {
+    background: linear-gradient(180deg, transparent 60%, rgba(20, 6, 6, 0.45));
+  }
+
+  .hero-inner {
+    z-index: 1;
   }
 
   .hero-copy {
-    max-width: 900px;
+    max-width: min(640px, 56%);
+  }
+
+  .hero-sign {
+    font-size: 1.05rem;
+  }
+
+  .video-toggle {
+    right: calc(var(--frame-right) + 16px);
+    bottom: 80px;
+  }
+
+  .find-photo {
+    aspect-ratio: 16 / 10;
   }
 
   .upstairs-grid {

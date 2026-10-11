@@ -1,5 +1,5 @@
-import '@fontsource-variable/fraunces/standard';
-import '@fontsource-variable/fraunces/standard-italic';
+import '@fontsource-variable/bodoni-moda/standard';
+import '@fontsource-variable/bodoni-moda/standard-italic';
 import '@fontsource-variable/dm-sans';
 import '@fontsource-variable/big-shoulders-display';
 import './styles/main.css';

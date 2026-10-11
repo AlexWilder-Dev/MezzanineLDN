@@ -8,6 +8,7 @@ export const photos = {
   cocktails: { file: 'cocktails.jpg', alt: 'Cocktails on the bar at Mezzanine', art: 'coupe' },
   board: { file: 'board.jpg', alt: 'An aperitivo board at Mezzanine', art: 'board' },
   hire: { file: 'hire.jpg', alt: 'Mezzanine set up for a private party', art: 'party' },
+  stairs: { file: 'stairs.jpg', alt: 'The lit Mezzanine arrow sign on the red brick stairwell, with a guest heading up', art: 'room' },
 };
 
 export const photoUrl = (file) => `${import.meta.env.BASE_URL}img/${file}`;
