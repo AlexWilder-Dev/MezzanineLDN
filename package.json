@@ -1,0 +1,20 @@
+{
+  "name": "mezzanine-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Mezzanine — cocktail bar and DJ venue upstairs in Tooting Market, London.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "@fontsource-variable/big-shoulders-display": "^5.3.0",
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0"
+  }
+}
