@@ -3,7 +3,7 @@
 
 export const photos = {
   room: { file: 'room.jpg', alt: 'The bar upstairs at Mezzanine, warm and low-lit', art: 'room' },
-  bar: { file: 'bar.jpg', alt: 'Cocktails being made at the Mezzanine bar', art: 'bar' },
+  bar: { file: 'bar.jpg', alt: 'A Mezzanine bartender finishing a cocktail at the bar', art: 'bar' },
   decks: { file: 'decks.jpg', alt: 'A DJ playing at Mezzanine', art: 'decks' },
   cocktails: { file: 'cocktails.jpg', alt: 'Cocktails on the bar at Mezzanine', art: 'coupe' },
   board: { file: 'board.jpg', alt: 'An aperitivo board at Mezzanine', art: 'board' },

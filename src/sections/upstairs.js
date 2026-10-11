@@ -23,8 +23,8 @@ export function upstairs() {
           <p>It’s laid-back, safe and inclusive: somewhere to settle in with a proper drink, and a platform for the independent DJs and musicians who play here.</p>
         </div>
         <div class="upstairs-photos">
-          ${photo('room', 'photo-tall', 'The room')}
-          ${photo('bar', 'photo-sq', 'The bar')}
+          ${photo('bar', 'photo-tall', 'The bar')}
+          ${photo('room', 'photo-sq', 'The room')}
           ${photo('decks', 'photo-sq', 'The decks')}
         </div>
       </div>

@@ -1254,6 +1254,7 @@ html[data-room='stairs'] .level-floor {
 .photo img {
   object-fit: cover;
   opacity: 0;
+  filter: sepia(0.12) saturate(1.05);
   transition: opacity 0.8s ease;
 }
 
